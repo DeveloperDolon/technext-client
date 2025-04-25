@@ -5,4 +5,4 @@ build:
 stop:
 	docker compose down
 bash:
-	docker compose exec -it app sh
+	docker compose exec -it tn_client sh
