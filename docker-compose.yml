@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  tn_client:
+    container_name: tn_client
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: npm run dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5712:3000"
+    env_file:
+      - .env.local
+    networks:
+      - app_network
+    restart: unless-stopped
