@@ -5,7 +5,7 @@ const Login = () => {
   const [showpass, setShowPass] = useState(false);
   return (
     <>
-      <div className="bg-indigo-50 dark:bg-black dark:text-white">
+      <div className="bg-indigo-50 dark:bg-black dark:text-white min-h-screen">
         <div className="xl:px-20 md:px-10 sm:px-6 px-4 md:py-12 py-9 2xl:mx-auto 2xl:container md:flex items-center justify-center">
           <div className=" md:hidden sm:mb-8 mb-6"></div>
           <div className="bg-white shadow-lg rounded xl:w-1/3 lg:w-5/12 md:w-1/2 w-full lg:px-10 sm:px-6 sm:py-10 px-2 py-6">
@@ -185,7 +185,8 @@ const Login = () => {
             <div className="mt-8">
               <button
                 role="button"
-                className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
+                className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none 
+                text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
               >
                 Create my account
               </button>
