@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { NavLink } from "react-router";
 
 const Login = () => {
   const [showpass, setShowPass] = useState(false);
@@ -19,13 +20,15 @@ const Login = () => {
               className="focus:outline-none text-sm mt-4 font-medium leading-none text-gray-500"
             >
               Dont have account?{" "}
-              <a
-                href="javascript:void(0)"
-                className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline text-sm font-medium leading-none text-gray-800 cursor-pointer"
-              >
-                {" "}
-                Sign up here
-              </a>
+              <NavLink to="/signup">
+                <button
+                  className="hover:text-gray-500 focus:text-gray-500 focus:outline-none focus:underline hover:underline 
+                text-sm font-medium leading-none text-gray-800 cursor-pointer"
+                >
+                  {" "}
+                  Sign up here
+                </button>
+              </NavLink>
             </p>
             <button
               aria-label="Continue with google"
