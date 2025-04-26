@@ -1,9 +1,10 @@
-import React from 'react';
+import { Outlet } from "react-router";
 
-const MainLayout = ({children} : {children: React.ReactNode}) => {
+const MainLayout = () => {
   return (
     <div>
-      {children}
+      This is the header
+      <Outlet />
     </div>
   );
 };
