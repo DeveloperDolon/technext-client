@@ -7,4 +7,6 @@ export type InputFieldProps = {
     type: string;
     options?: RegisterOptions;
     className?: string;
+    showPass?: boolean;
+    setShowPass?: (val: boolean) => void;
 };
