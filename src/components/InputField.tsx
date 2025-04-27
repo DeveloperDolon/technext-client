@@ -19,11 +19,11 @@ const InputField = ({
     <div className={`flex flex-col ${className}`}>
       {type === "textarea" ? (
         <>
-          <label htmlFor={name} className="text-sm">
+          <label htmlFor={name} className="text-sm dark:text-white">
             {label}
           </label>
           <textarea
-            className="mt-1"
+            className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
             rows={4}
             placeholder={placeholder}
             {...register(name, options)}
@@ -36,10 +36,13 @@ const InputField = ({
         </>
       ) : type === "select" ? (
         <>
-          <label htmlFor={name} className="text-sm">
+          <label htmlFor={name} className="text-sm dark:text-white">
             {label}
           </label>
-          <select className="mt-1" {...register(name, options)}>
+          <select
+            className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+            {...register(name, options)}
+          >
             <option value={""} disabled>
               {placeholder}
             </option>
@@ -55,11 +58,15 @@ const InputField = ({
         </>
       ) : type === "checkbox" ? (
         <>
-          <label htmlFor={name} className="text-sm">
+          <label htmlFor={name} className="text-sm dark:text-white">
             {label}
           </label>
           <div>
-            <input className="mt-1" type={type} {...register(name, options)} />
+            <input
+              className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
+              type={type}
+              {...register(name, options)}
+            />
             Checkbox
           </div>
           {error && (
@@ -68,13 +75,13 @@ const InputField = ({
             </p>
           )}
         </>
-      ) : type === "text" || type === "number" ? (
+      ) : type === "text" || type === "number" || type === "email" ? (
         <>
-          <label htmlFor={name} className="text-sm">
+          <label htmlFor={name} className="text-sm dark:text-white">
             {label}
           </label>
           <input
-            className="mt-1"
+            className="bg-gray-200 border rounded text-xs font-medium leading-none placeholder-gray-800 text-gray-800 py-3 w-full pl-3 mt-2"
             type={type}
             placeholder={placeholder}
             {...register(name, options)}
