@@ -130,3 +130,6 @@ docker compose up
 # Dashboard api 
 1. Dashboard create - api/v1/dashboard/overview [GET]
 ```
+
+### 5. ERD Diagram
+![ERD Diagram](./assets/Technext_job_task.png)

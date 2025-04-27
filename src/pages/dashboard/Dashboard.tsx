@@ -6,6 +6,7 @@ const Dashboard = () => {
   const { data: overviewData } = useGetOverviewQuery(1);
 
   const metrics = overviewData?.data;
+  console.log(metrics)
 
   return (
     <div className="mb-8">
