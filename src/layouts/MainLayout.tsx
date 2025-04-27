@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { NavLink, Outlet } from "react-router";
 import { useState } from "react";
 import { FiMenu, FiX, FiHome, FiSettings, FiUser } from "react-icons/fi";
 import DashboardHeader from "../components/DashboardHeader";
@@ -39,31 +39,43 @@ const MainLayout = () => {
           <nav className="mt-6 flex-1 ">
             <ul className="space-y-2">
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black"
+                <NavLink
+                  to="/dashboard/home"
+                  className={({ isActive }) =>
+                    `flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black ${
+                      isActive ? "bg-gray-700 font-semibold" : ""
+                    }`
+                  }
                 >
                   <FiHome className="mr-3" />
-                  Home
-                </a>
+                  Dashboard
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black"
+                <NavLink
+                  to="/dashboard/client-management/"
+                  className={({ isActive }) =>
+                    `flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black ${
+                      isActive ? "bg-gray-700 font-semibold" : ""
+                    }`
+                  }
                 >
-                  <FiUser className="mr-3" />
-                  Profile
-                </a>
+                  <FiHome className="mr-3" />
+                  Client Management
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black"
+                <NavLink
+                  to="/dashboard/project-management/"
+                  className={({ isActive }) =>
+                    `flex items-center p-3 rounded-lg hover:bg-gray-700 dark:text-white text-black ${
+                      isActive ? "bg-gray-700 font-semibold" : ""
+                    }`
+                  }
                 >
-                  <FiSettings className="mr-3" />
-                  Settings
-                </a>
+                  <FiHome className="mr-3" />
+                  Project Management
+                </NavLink>
               </li>
             </ul>
           </nav>

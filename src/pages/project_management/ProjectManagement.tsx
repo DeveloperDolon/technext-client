@@ -17,8 +17,7 @@ type Client = {
   status: "active" | "inactive" | "lead";
 };
 
-const ClientManagement = () => {
-  
+const ProjectManagement = () => {
   const [clients, setClients] = useState<Client[]>([
     {
       id: "1",
@@ -62,7 +61,6 @@ const ClientManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const clientsPerPage = 5;
 
-  
   const requestSort = (key: keyof Client) => {
     let direction: "ascending" | "descending" = "ascending";
     if (
@@ -117,7 +115,7 @@ const ClientManagement = () => {
     <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-          Client Management
+          Project Management
         </h2>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
@@ -127,7 +125,7 @@ const ClientManagement = () => {
             </div>
             <input
               type="text"
-              placeholder="Search clients..."
+              placeholder="Search projects..."
               className="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg w-full bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 dark:text-white"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -136,7 +134,7 @@ const ClientManagement = () => {
 
           <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
             <FiPlus />
-            New Client
+            New Project
           </button>
         </div>
       </div>
@@ -265,4 +263,4 @@ const ClientManagement = () => {
   );
 };
 
-export default ClientManagement;
+export default ProjectManagement;

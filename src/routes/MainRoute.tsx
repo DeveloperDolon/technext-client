@@ -4,6 +4,7 @@ import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
 import Dashboard from "../pages/dashboard/Dashboard";
 import ClientManagement from "../pages/client_management/ClientManagement";
+import ProjectManagement from "../pages/project_management/ProjectManagement";
 
 const MainRoute = createBrowserRouter([
   {
@@ -11,12 +12,16 @@ const MainRoute = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-        path: "/dashboard/",
+        path: "home",
         element: <Dashboard />,
       },
       {
-        path: "client-management/",
+        path: "client-management",
         element: <ClientManagement />
+      },
+      {
+        path: "project-management",
+        element: <ProjectManagement />
       }
     ],
   },
