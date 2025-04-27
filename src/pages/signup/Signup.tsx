@@ -18,11 +18,16 @@ const Signup = () => {
   
   const onSubmit = async (data: SignupValidationType) => {
     try {
-      toast.promise(signup(data), {
-        loading: "Registering...",
-        success: <b>User info saved!</b>,
-        error: <b>Could not save.</b>,
-      });
+      const toastId = toast.loading('Registering...');
+
+      const result: any = await signup(data);
+
+      if(result?.success) {
+        toast.success("User registration complete!", {id: toastId});
+      }
+      else {
+        toast.error("Something went wrong!", {id: toastId});
+      }
     } catch (err) {
       console.log(err);
     }
