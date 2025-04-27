@@ -132,4 +132,4 @@ docker compose up
 ```
 
 ### 5. ERD Diagram
-![ERD Diagram](./assets/Technext_job_task.png)
+![ERD Diagram](./src/assets/Technext_job_task.png)
