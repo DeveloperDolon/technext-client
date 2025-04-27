@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import InputField from "../../components/InputField";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const [showpass, setShowPass] = useState(false);
   const [login] = useLoginMutation();
-
+  const navigate = useNavigate();
   const methods = useForm({
     resolver: zodResolver(login_validation),
   });
@@ -20,9 +20,11 @@ const Login = () => {
       const toastId = toast.loading("Loading...");
 
       const result: any = await login(data);
-      
+
       if (result?.data?.success) {
         toast.success("Login complete!", { id: toastId });
+        localStorage.setItem("authToken", result?.data?.data?.accessToken);
+        navigate('/');
       } else {
         toast.error("Something went wrong!", { id: toastId });
       }

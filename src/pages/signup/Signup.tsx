@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import InputField from "../../components/InputField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signup_validation, SignupValidationType } from "./signup.validation";
@@ -11,7 +11,7 @@ const Signup = () => {
   const [showpass, setShowPass] = useState(false);
 
   const [signup] = useSignupMutation();
-
+  const navigate = useNavigate();
   const methods = useForm({
     resolver: zodResolver(signup_validation),
   });
@@ -24,6 +24,7 @@ const Signup = () => {
 
       if(result?.success) {
         toast.success("User registration complete!", {id: toastId});
+        navigate('/login');
       }
       else {
         toast.error("Something went wrong!", {id: toastId});
