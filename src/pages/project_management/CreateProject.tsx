@@ -49,7 +49,7 @@ const CreateProject = () => {
       <FormProvider {...methods}>
         <form
           onSubmit={methods.handleSubmit(onSubmit)}
-          className="grid grid-cols-2 gap-5 mt-6"
+          className="grid md:grid-cols-2 grid-cols-1 gap-5 mt-6"
         >
           <InputField
             name="project.title"
