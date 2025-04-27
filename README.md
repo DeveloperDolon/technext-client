@@ -45,29 +45,12 @@ A full-stack application for managing clients, projects, interactions, and remin
 | JWT | Authentication |
 | Zod | Validation |
 
-## 🏗️ Project Structure
-client-project-management/
-├── backend/ # Backend server code
-│ ├── src/
-│ │ ├── controllers/ # Route controllers
-│ │ ├── services/ # Business logic
-│ │ ├── routes/ # API routes
-│ │ ├── middlewares/ # Express middlewares
-│ │ ├── utils/ # Utility functions
-│ │ └── app.ts # Express app setup
-│ ├── prisma/ # Database schema
-│ └── package.json
-│
-├── frontend/ # Frontend React app
-│ ├── public/
-│ ├── src/
-│ │ ├── components/ # Reusable components
-│ │ ├── features/ # Feature modules
-│ │ ├── store/ # Redux store
-│ │ ├── utils/ # Utility functions
-│ │ └── App.tsx # Main component
-│ └── package.json
-│
-├── docs/ # Documentation
-└── README.md # This file
+### 1. Clone Both Repositories
+```bash
+# Clone frontend
+git clone https://github.com/DeveloperDolon/technext-client.git
+cd technext-client
+
+# Clone backend
+git clone https://github.com/DeveloperDolon/technext-server.git ../technext-server
 
