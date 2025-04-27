@@ -14,3 +14,14 @@ export type InputFieldProps = {
     value: string | number;
   }[];
 };
+
+
+export type TClient = {
+    id: string;
+    name: string;
+    email: string;
+    phone?: string;
+    company?: string;
+    notes?: string;
+    themePref: string;
+}
