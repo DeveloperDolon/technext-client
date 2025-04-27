@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Login from "../pages/login/Login";
 import Signup from "../pages/signup/Signup";
 import Dashboard from "../pages/dashboard/Dashboard";
+import ClientManagement from "../pages/client_management/ClientManagement";
 
 const MainRoute = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const MainRoute = createBrowserRouter([
         path: "/dashboard/",
         element: <Dashboard />,
       },
+      {
+        path: "client-management/",
+        element: <ClientManagement />
+      }
     ],
   },
   {
