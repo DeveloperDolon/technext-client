@@ -10,13 +10,13 @@ const InputField = ({
   className,
   showPass,
   setShowPass,
-  selectOptions
+  selectOptions,
 }: InputFieldProps) => {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-  
+
   const getError = (fieldName: string) => {
     const fields = fieldName.split(".");
     let currentError = errors;
@@ -26,11 +26,11 @@ const InputField = ({
       currentError = currentError[field] as typeof currentError;
     }
 
-    return currentError?.message as unknown as string || "";
+    return (currentError?.message as unknown as string) || "";
   };
 
   const error = getError(name);
-  
+
   return (
     <div className={`flex flex-col ${className}`}>
       {type === "textarea" ? (
@@ -62,9 +62,9 @@ const InputField = ({
             <option value={""} disabled>
               {placeholder}
             </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            {selectOptions?.map((item) => (
+              <option value={item?.value}>{item?.label}</option>
+            ))}
           </select>
           {error && (
             <p className="md:text-sm text-xs font-light text-red-500">
@@ -91,7 +91,7 @@ const InputField = ({
             </p>
           )}
         </>
-      ) : type === "text" || type === "number" || type === "email" ? (
+      ) : type === "text" || type === "number" || type === "email" || type === 'date' ? (
         <>
           <label htmlFor={name} className="text-sm dark:text-white">
             {label}

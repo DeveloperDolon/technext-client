@@ -3,8 +3,8 @@ import { z } from "zod";
 export const projectCreateZodSchema = z.object({
   project: z.object({
     title: z.string().min(1).max(100),
-    budget: z.number().min(0),
-    clientId: z.string(),
+    budget: z.union([z.string().min(1), z.number().min(1)]),
+    clientId: z.string().uuid(),
     deadline: z.coerce.date(),
     status: z
       .enum(["PENDING", "IN_PROGRESS", "COMPLETED", "CANCELLED"])
