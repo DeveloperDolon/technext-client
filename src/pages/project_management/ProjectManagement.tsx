@@ -7,6 +7,7 @@ import {
   FiChevronDown,
   FiSearch,
 } from "react-icons/fi";
+import { NavLink } from "react-router";
 
 type Client = {
   id: string;
@@ -132,10 +133,12 @@ const ProjectManagement = () => {
             />
           </div>
 
-          <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-            <FiPlus />
-            New Project
-          </button>
+          <NavLink to={'/dashboard/create-project'}>
+            <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+              <FiPlus />
+              New Project
+            </button>
+          </NavLink>
         </div>
       </div>
 

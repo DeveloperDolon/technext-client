@@ -23,8 +23,9 @@ const Login = () => {
 
       if (result?.data?.success) {
         toast.success("Login complete!", { id: toastId });
+        console.log( result?.data?.data?.accessToken);
         localStorage.setItem("authToken", result?.data?.data?.accessToken);
-        navigate('/');
+        navigate('/dashboard/home');
       } else {
         toast.error("Something went wrong!", { id: toastId });
       }

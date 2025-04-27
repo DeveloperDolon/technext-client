@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 
-export const baseQuery = fetchBaseQuery({
+const baseQuery = fetchBaseQuery({
   baseUrl: import.meta.env.VITE_API_URL,
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("authToken");
@@ -12,9 +12,21 @@ export const baseQuery = fetchBaseQuery({
   },
   fetchFn: async (input, init) => {
     const response = await fetch(input, init);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
     return response;
   },
 });
+
+export const baseQueryWithAuth = async (args: any, api: any, extraOptions: any) => {
+  let result = await baseQuery(args, api, extraOptions);
+  console.log(result)
+  if ((result?.error?.data as { message?: string })?.message === 'invalid token') {
+    
+    console.log("Access token expired or invalid. Logging out...");
+
+    localStorage.removeItem("authToken");
+    
+    window.location.href = "/login";
+  }
+
+  return result;
+};

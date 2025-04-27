@@ -5,6 +5,7 @@ import Signup from "../pages/signup/Signup";
 import Dashboard from "../pages/dashboard/Dashboard";
 import ClientManagement from "../pages/client_management/ClientManagement";
 import ProjectManagement from "../pages/project_management/ProjectManagement";
+import CreateProject from "../pages/project_management/CreateProject";
 
 const MainRoute = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const MainRoute = createBrowserRouter([
       {
         path: "project-management",
         element: <ProjectManagement />
+      },
+      {
+        path: "create-project",
+        element: <CreateProject />
       }
     ],
   },

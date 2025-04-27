@@ -9,7 +9,8 @@ const InputField = ({
   options,
   className,
   showPass,
-  setShowPass
+  setShowPass,
+  selectOptions
 }: InputFieldProps) => {
   const {
     register,
