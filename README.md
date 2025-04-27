@@ -50,7 +50,11 @@ A full-stack application for managing clients, projects, interactions, and remin
 # Clone frontend
 git clone https://github.com/DeveloperDolon/technext-client.git
 cd technext-client
+```
 
+```bash
 # Clone backend
-git clone https://github.com/DeveloperDolon/technext-server.git ../technext-server
+git clone https://github.com/DeveloperDolon/technext-server.git 
+cd technext-server
 
+```
