@@ -79,3 +79,12 @@ docker compose up
 
   Then run this prisma command to migrate database.
     ```npx prisma migrate dev --name initial_migration```
+
+### 4. Api documentation 
+
+```bash
+# User api documentation
+1. Register user - api/v1/user/create [POST]
+2. Login user - api/v1/user/login [POST]
+3. Me - api/v1/user/me [GET]
+```
