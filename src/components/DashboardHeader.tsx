@@ -25,14 +25,14 @@ const DashboardHeader = () => {
 
   return (
     <header className="flex justify-between items-center p-6 px-0">
-      <h1 className="md:text-2xl sm:text-xl text-lg font-semibold text-white">
+      <h1 className="md:text-2xl sm:text-xl text-lg font-semibold dark:text-white text-black">
         Dashboard
       </h1>
 
       <button
         onClick={toggleTheme}
         aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-        className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        className="p-2 rounded-full border dark:border-white border-black hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
       >
         {isDark ? (
           <MdLightMode size={20} className="text-yellow-400" />

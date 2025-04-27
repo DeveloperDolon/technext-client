@@ -74,7 +74,7 @@ const MainLayout = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-6 lg:ml-64 ml-10 pt-0 pb-0">
+      <div className="flex-1 p-6 lg:ml-64 ml-10 pt-0 pb-0 dark:bg-slate-950 bg-white">
         <DashboardHeader />
 
         <Outlet />

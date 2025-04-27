@@ -3,7 +3,7 @@
 const Dashboard = () => {
   return (
     <div>
-        This is the dashboard section.
+        <h1 className="dark:text-white text-black text-center">Main Part</h1>
     </div>
   );
 };
