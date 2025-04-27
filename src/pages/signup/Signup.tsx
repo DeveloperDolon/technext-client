@@ -18,8 +18,6 @@ const Signup = () => {
   
   const onSubmit = async (data: SignupValidationType) => {
     try {
-      console.log(data);
-      return;
       toast.promise(signup(data), {
         loading: "Registering...",
         success: <b>User info saved!</b>,

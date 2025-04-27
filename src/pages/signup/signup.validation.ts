@@ -5,7 +5,7 @@ export const signup_validation = z.object({
     user: z.object({
         name: z.string().min(3, "Please input username"),
         email: z.string().email("Please provide a valid email address!"),
-        themePref: z.enum(["LIGHT", "DARK"]).default("LIGHT"),
+        themePref: z.enum(["light", "dark"]).default("light"),
     }),
 });
 

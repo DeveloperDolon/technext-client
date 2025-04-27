@@ -7,6 +7,9 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
+    proxy: {
+      '/api': 'http://0.0.0.0:5000',
+    },
   },
   css: {
     postcss: {
