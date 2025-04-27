@@ -15,8 +15,21 @@ const InputField = ({
     register,
     formState: { errors },
   } = useFormContext();
-  const error: string = (errors[name]?.message as string) || "";
+  
+  const getError = (fieldName: string) => {
+    const fields = fieldName.split(".");
+    let currentError = errors;
 
+    for (const field of fields) {
+      if (!currentError?.[field]) return null;
+      currentError = currentError[field] as typeof currentError;
+    }
+
+    return currentError?.message as unknown as string || "";
+  };
+
+  const error = getError(name);
+  
   return (
     <div className={`flex flex-col ${className}`}>
       {type === "textarea" ? (

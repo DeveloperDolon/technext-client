@@ -15,9 +15,11 @@ const Signup = () => {
   const methods = useForm({
     resolver: zodResolver(signup_validation),
   });
-
+  
   const onSubmit = async (data: SignupValidationType) => {
     try {
+      console.log(data);
+      return;
       toast.promise(signup(data), {
         loading: "Registering...",
         success: <b>User info saved!</b>,
@@ -27,7 +29,7 @@ const Signup = () => {
       console.log(err);
     }
   };
-  
+
   return (
     <>
       <div className="bg-indigo-50 dark:bg-black dark:text-white min-h-screen">
@@ -62,14 +64,15 @@ const Signup = () => {
                 className="space-y-3 mt-8"
               >
                 <InputField
-                  name="name"
+                  name="user.name"
                   label="Username"
                   placeholder="Input username"
                   type="text"
+                  options={{required: true}}
                 />
 
                 <InputField
-                  name="email"
+                  name="user.email"
                   type="email"
                   label="Email"
                   placeholder="Input your email"
