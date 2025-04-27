@@ -7,6 +7,7 @@ import {
   FiChevronDown,
   FiSearch,
 } from "react-icons/fi";
+import { NavLink } from "react-router";
 
 type Client = {
   id: string;
@@ -18,7 +19,6 @@ type Client = {
 };
 
 const ClientManagement = () => {
-  
   const [clients, setClients] = useState<Client[]>([
     {
       id: "1",
@@ -62,7 +62,6 @@ const ClientManagement = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const clientsPerPage = 5;
 
-  
   const requestSort = (key: keyof Client) => {
     let direction: "ascending" | "descending" = "ascending";
     if (
@@ -134,10 +133,12 @@ const ClientManagement = () => {
             />
           </div>
 
-          <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-            <FiPlus />
-            New Client
-          </button>
+          <NavLink to={"/dashboard/create-client"}>
+            <button className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
+              <FiPlus />
+              New Client
+            </button>
+          </NavLink>
         </div>
       </div>
 

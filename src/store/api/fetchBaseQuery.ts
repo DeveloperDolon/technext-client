@@ -18,7 +18,7 @@ const baseQuery = fetchBaseQuery({
 
 export const baseQueryWithAuth = async (args: any, api: any, extraOptions: any) => {
   let result = await baseQuery(args, api, extraOptions);
-  console.log(result)
+  
   if ((result?.error?.data as { message?: string })?.message === 'invalid token') {
     
     console.log("Access token expired or invalid. Logging out...");

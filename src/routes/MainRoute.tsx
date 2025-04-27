@@ -6,6 +6,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import ClientManagement from "../pages/client_management/ClientManagement";
 import ProjectManagement from "../pages/project_management/ProjectManagement";
 import CreateProject from "../pages/project_management/CreateProject";
+import CreateClient from "../pages/client_management/CreateClient";
 
 const MainRoute = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const MainRoute = createBrowserRouter([
       {
         path: "create-project",
         element: <CreateProject />
+      },
+      {
+        path: "create-client",
+        element: <CreateClient />
       }
     ],
   },
