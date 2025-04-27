@@ -21,7 +21,6 @@ const Signup = () => {
       const toastId = toast.loading('Registering...');
 
       const result: any = await signup(data);
-
       if(result?.success) {
         toast.success("User registration complete!", {id: toastId});
         navigate('/login');
