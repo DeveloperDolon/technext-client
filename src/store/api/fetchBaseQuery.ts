@@ -1,7 +1,7 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 
 export const baseQuery = fetchBaseQuery({
-  baseUrl: process.env.NEXT_PUBLIC_API_URL,
+  baseUrl: import.meta.env.VITE_API_URL,
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("authToken");
     if (token) {

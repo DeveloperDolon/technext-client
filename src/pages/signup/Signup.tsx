@@ -3,20 +3,31 @@ import { FormProvider, useForm } from "react-hook-form";
 import { NavLink } from "react-router";
 import InputField from "../../components/InputField";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signup_validation } from "./signup.validation";
+import { signup_validation, SignupValidationType } from "./signup.validation";
+import { useSignupMutation } from "../../store/api/auth.api";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const [showpass, setShowPass] = useState(false);
-  
-    const methods = useForm({
-      resolver: zodResolver(signup_validation),
-    });
-  
-    const onSubmit = (data: unknown) => {
-      console.log(data);
-    };
-  
 
+  const [signup] = useSignupMutation();
+
+  const methods = useForm({
+    resolver: zodResolver(signup_validation),
+  });
+
+  const onSubmit = async (data: SignupValidationType) => {
+    try {
+      toast.promise(signup(data), {
+        loading: "Registering...",
+        success: <b>User info saved!</b>,
+        error: <b>Could not save.</b>,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   return (
     <>
       <div className="bg-indigo-50 dark:bg-black dark:text-white min-h-screen">
@@ -46,7 +57,10 @@ const Signup = () => {
             </p>
 
             <FormProvider {...methods}>
-              <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-3 mt-8">
+              <form
+                onSubmit={methods.handleSubmit(onSubmit)}
+                className="space-y-3 mt-8"
+              >
                 <InputField
                   name="name"
                   label="Username"
@@ -59,7 +73,7 @@ const Signup = () => {
                   type="email"
                   label="Email"
                   placeholder="Input your email"
-                  options={{required: true}}
+                  options={{ required: true }}
                 />
 
                 <InputField
@@ -67,7 +81,7 @@ const Signup = () => {
                   type="password"
                   label="Password"
                   placeholder="Input your password"
-                  options={{required: true}}
+                  options={{ required: true }}
                   setShowPass={setShowPass}
                   showPass={showpass}
                 />
