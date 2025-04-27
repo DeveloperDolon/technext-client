@@ -102,7 +102,7 @@ const InputField = ({
 
           <div className="relative flex items-center justify-center">
             <input
-              type={type}
+              type={showPass ? "text" : "password"}
               placeholder={placeholder}
               {...register(name, options)}
               className="bg-gray-200 border rounded text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
