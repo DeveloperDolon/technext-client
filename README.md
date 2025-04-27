@@ -59,7 +59,7 @@ cd technext-server
 
 ```
 
-### 1. Run project docker container
+### 2. Run project docker container
 
 ```bash
 # Then run this command for all repositories to build and run project in docker
@@ -71,3 +71,11 @@ make start
 or
 docker compose up
 ```
+
+
+### 3. Migrate data base 
+  After running the container then go to inside of container with this command
+  ```make bash  -or-  docker compose exec -it tn_server sh ```
+
+  Then run this prisma command to migrate database.
+    ```npx prisma migrate dev --name initial_migration```
