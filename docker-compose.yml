@@ -6,12 +6,12 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    command: npm run dev -- --host 0.0.0.0 --port 3000
+    command: npm run dev -- --host 0.0.0.0 --port 3005
     volumes:
       - .:/app
       - /app/node_modules
     ports:
-      - "5712:3000"
+      - "5712:3005"
     env_file:
       - .env
     networks:
@@ -20,4 +20,5 @@ services:
 
 networks:
   app_network:
+    external: true
     driver: bridge
