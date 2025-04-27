@@ -1,55 +1,73 @@
-# React + TypeScript + Vite
+# Client & Project Management System
+![Docker](https://img.shields.io/badge/Docker-Containerized-blue?logo=docker)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?logo=postgresql)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A full-stack application for managing clients, projects, interactions, and reminders with dashboard analytics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🐳 Docker Setup
 
-## Expanding the ESLint configuration
+### Prerequisites
+- Docker Engine (v20.10+)
+- Docker Compose (v2.0+)
+- Git
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Features
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Client Management**: Create, view, update, and delete client records
+- **Project Tracking**: Manage projects with status updates and deadlines
+- **Interaction Logging**: Record emails, meetings, and calls with clients
+- **Reminder System**: Set and track important deadlines
+- **Dashboard Analytics**: Visual overview of key metrics
+- **User Authentication**: Secure login with JWT
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| React.js | Frontend framework |
+| TypeScript | Type safety |
+| Redux Toolkit | State management |
+| React Router | Navigation |
+| Tailwind CSS | Styling |
+| Redux RTK query | HTTP client |
+| React Hook Form | Form handling |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
-# technext-client
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime environment |
+| Express | Web framework |
+| TypeScript | Type safety |
+| Prisma | ORM |
+| PostgreSQL | Database |
+| JWT | Authentication |
+| Zod | Validation |
+
+## 🏗️ Project Structure
+client-project-management/
+├── backend/ # Backend server code
+│ ├── src/
+│ │ ├── controllers/ # Route controllers
+│ │ ├── services/ # Business logic
+│ │ ├── routes/ # API routes
+│ │ ├── middlewares/ # Express middlewares
+│ │ ├── utils/ # Utility functions
+│ │ └── app.ts # Express app setup
+│ ├── prisma/ # Database schema
+│ └── package.json
+│
+├── frontend/ # Frontend React app
+│ ├── public/
+│ ├── src/
+│ │ ├── components/ # Reusable components
+│ │ ├── features/ # Feature modules
+│ │ ├── store/ # Redux store
+│ │ ├── utils/ # Utility functions
+│ │ └── App.tsx # Main component
+│ └── package.json
+│
+├── docs/ # Documentation
+└── README.md # This file
+
