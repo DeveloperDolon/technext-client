@@ -59,6 +59,8 @@ cd technext-server
 
 ```
 
+### 1. Run project docker container
+
 ```bash
 # Then run this command for all repositories to build and run project in docker
 make build
@@ -67,5 +69,5 @@ docker compose build
 
 make start
 or
-docker compose start
+docker compose up
 ```
