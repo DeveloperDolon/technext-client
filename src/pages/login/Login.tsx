@@ -3,17 +3,32 @@ import { NavLink } from "react-router";
 import InputField from "../../components/InputField";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { login_validation } from "./login.validation";
+import { login_validation, LoginValidationType } from "./login.validation";
+import { useLoginMutation } from "../../store/api/auth.api";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const [showpass, setShowPass] = useState(false);
+  const [login] = useLoginMutation();
 
   const methods = useForm({
     resolver: zodResolver(login_validation),
   });
 
-  const onSubmit = (data: unknown) => {
-    console.log(data);
+  const onSubmit = async (data: LoginValidationType) => {
+    try {
+      const toastId = toast.loading("Loading...");
+
+      const result: any = await login(data);
+      
+      if (result?.data?.success) {
+        toast.success("Login complete!", { id: toastId });
+      } else {
+        toast.error("Something went wrong!", { id: toastId });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -126,7 +141,10 @@ const Login = () => {
               <hr className="w-full bg-gray-400" />
             </div>
             <FormProvider {...methods}>
-              <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-3">
+              <form
+                onSubmit={methods.handleSubmit(onSubmit)}
+                className="space-y-3"
+              >
                 <div>
                   <InputField
                     name="email"
@@ -143,7 +161,7 @@ const Login = () => {
                   type="password"
                   label="Password"
                   placeholder="Enter your password"
-                  options={{required: true}}
+                  options={{ required: true }}
                 />
                 <div className="mt-8">
                   <button

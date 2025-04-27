@@ -1,3 +1,4 @@
+import { LoginValidationType } from "../../pages/login/login.validation";
 import { SignupValidationType } from "../../pages/signup/signup.validation";
 import { baseApi } from "./baseApi";
 
@@ -11,7 +12,15 @@ const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    login: builder.mutation({
+      query: (payload: LoginValidationType) => ({
+        url: "/user/login",
+        method: "POST",
+        body: payload,
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
-export const { useSignupMutation } = authApi;
+export const { useSignupMutation, useLoginMutation } = authApi;
