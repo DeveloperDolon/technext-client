@@ -83,8 +83,50 @@ docker compose up
 ### 4. Api documentation 
 
 ```bash
-# User api documentation
+# User api 
 1. Register user - api/v1/user/create [POST]
 2. Login user - api/v1/user/login [POST]
 3. Me - api/v1/user/me [GET]
+```
+
+```bash
+# Client api 
+1. Client create - api/v1/client/create [POST]
+2. Client update - api/v1/client/update/:id [PUT]
+3. Client Delete - api/v1/client/delete/:id [DELETE]
+4. Client show - api/v1/client/show/:id [GET]
+5. Client list - api/v1/client/list [GET]
+```
+
+```bash
+# Project api 
+1. Project create - api/v1/project/create [POST]
+2. Project update - api/v1/project/update/:id [PUT]
+3. Project Delete - api/v1/project/delete/:id [DELETE]
+4. Project show - api/v1/project/show/:id [GET]
+5. Project list - api/v1/project/list [GET]
+```
+
+```bash
+# Interaction api 
+1. Interaction create - api/v1/interaction/create [POST]
+2. Interaction update - api/v1/interaction/update/:id [PUT]
+3. Interaction Delete - api/v1/interaction/delete/:id [DELETE]
+4. Interaction show - api/v1/interaction/show/:id [GET]
+5. Interaction list - api/v1/interaction/list [GET]
+```
+
+```bash
+# Reminder api 
+1. Reminder create - api/v1/reminder/create [POST]
+2. Reminder update - api/v1/reminder/update/:id [PUT]
+3. Reminder Delete - api/v1/reminder/delete/:id [DELETE]
+4. Reminder show - api/v1/reminder/show/:id [GET]
+5. Reminder list - api/v1/reminder/list [GET]
+5. Upcoming reminder - api/v1/reminder/upcoming [GET]
+```
+
+```bash
+# Dashboard api 
+1. Dashboard create - api/v1/dashboard/overview [GET]
 ```
