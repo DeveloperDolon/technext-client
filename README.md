@@ -58,3 +58,14 @@ git clone https://github.com/DeveloperDolon/technext-server.git
 cd technext-server
 
 ```
+
+```bash
+# Then run this command for all repositories to build and run project in docker
+make build
+or
+docker compose build
+
+make start
+or
+docker compose start
+```
